@@ -1,107 +1,50 @@
 # Deauther
 
-## Disclaimer ⚠️
+## ⚠️ Disclaimer
+This tool is provided **strictly for educational and research purposes only**.  
+Do **not** use it for illegal activities. It must only be run on networks and devices that you own or have explicit permission to test.  
 
-This tool is provided for educational purposes only. It should not be used for illegal activities. Only use it for legitimate penetration testing and security research purposes and network devices that you own or have permission to test. By using this tool, you agree that you will not engage in any unauthorized or illegal activities with it. You understand that the misuse of this tool may violate laws and regulations and can lead to severe legal consequences, including criminal charges and penalties. The author of this tool shall not be held responsible for any damages or liabilities caused by the use or misuse of this tool. Use this tool at your own risk and with proper authorization. Ensure compliance with applicable laws and obtain necessary permissions before using it.
+By using this tool, you agree:
+- You will not engage in unauthorized or unlawful actions.
+- You are fully responsible for any outcomes that result from its usage.  
 
-## Introduction
+The authors and contributors shall **not be held liable** for misuse, damages, or legal consequences.  
+Use responsibly, ethically, and in compliance with applicable laws.
 
-Deauther is a command-line utility designed for educational purposes, allowing you to perform various actions related to Wi-Fi networks. This tool is intended for legitimate penetration testing, security research purposes, and network devices that you own or have permission to test.
+---
 
-## Pre-requisites
+## 📖 Introduction
+**Deauther** is a command-line utility that allows security researchers and penetration testers to explore Wi-Fi networks in a controlled and authorized environment.  
 
-- Linux Environment
-- [Python 3](https://www.python.org/downloads/)
-- [Aircrack-ng](https://www.aircrack-ng.org/downloads.html)
+It provides functionality to:
+- Scan for nearby wireless networks  
+- Enumerate clients connected to an access point  
+- Perform controlled deauthentication tests (with authorization)  
 
-## Installation
+This project is intended as a **learning resource** for Wi-Fi security concepts.
 
-1. Clone the repository
+---
 
-```
-git clone https://github.com/ezhil56x/deauther.git
-```
+## ✅ Pre-requisites
+Before installing, ensure the following are available in your environment:
+- Linux-based OS  
+- **Python 3**  
+- **Aircrack-ng** suite  
 
-2. Move the repository
+---
 
-```
-sudo mv deauther /opt
-```
+## ⚙️ Installation
+Clone the repository and set up the tool:
 
-3. Create a symbolic link
+```bash
+# Clone this repository
+git clone https://github.com/JeevanaMV/WiFiAuthProbe.git
 
-```
+# Move the repository to /opt
+sudo mv WiFiAuthProbe /opt/deauther
+
+# Create a symbolic link
 sudo ln -s /opt/deauther/deauther /usr/local/bin/deauther
-```
 
-4. Make the tool executable
-
-```
+# Make it executable
 sudo chmod +x /opt/deauther/deauther
-```
-
-## Options
-
-| Option                          | Description                                     |
-| ------------------------------- | ----------------------------------------------- |
-| `-h` or `--help`                | Show help message and exit                      |
-| `--mode=<mode> `                | Specify the mode to use                         |
-| `--interface=<interface>`       | Specify the Wi-Fi interface                     |
-| `--time=<time>`                 | Specify the time you want to scan               |
-| `--channel=<channel>`           | Specify the channel number of the Wi-Fi network |
-| `--access-point=<access-point>` | Specify the access point MAC to use             |
-| `--client=<client>`             | Specify the client MAC to use                   |
-| `--number=<number>`             | Specify the number to packets to send           |
-
-## Modes of Operation
-
-| Mode            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| `scan_wns`      | Scan for Wi-Fi networks                               |
-| `list_aps`      | List available Wi-Fi networks                         |
-| `scan_ap`       | Scan for clients connected to a Wi-Fi network         |
-| `list_clients`  | List clients connected to a Wi-Fi network             |
-| `deauth_all`    | Deauthenticate all clients from a Wi-Fi network       |
-| `deauth_client` | Deauthenticate a specific client from a Wi-Fi network |
-
-## Usage
-
-### Scan Wi-Fi networks
-
-```
-sudo deauther --mode=scan_wns --interface=wlan0 --time=120
-```
-
-### List available Wi-Fi networks
-
-```
-sudo deauther --mode=list_aps
-```
-
-### Scan a Wi-Fi network for clients
-
-```
-sudo deauther --mode=scan_ap --interface=wlan0 --channel=6 --access-point=FF:FF:FF:FF:FF:FF --time=120
-```
-
-### List clients connected to a Wi-Fi network
-
-```
-sudo deauther --mode=list_clients
-```
-
-### Deauthenticate all clients from a Wi-Fi network
-
-```
-sudo deauther --mode=deauth_all --interface=wlan0 --access-point=FF:FF:FF:FF:FF:FF --number=10000
-```
-
-### Deauthenticate a specific client from a Wi-Fi network
-
-```
-sudo deauther --mode=deauth_client --interface=wlan0 --access-point=FF:FF:FF:FF:FF:FF --client=FF:FF:FF:FF:FF:FF --number=10000
-```
-
-## License
-
-This tool is licensed under the [MIT License](https://github.com/ezhil56x/deauther/blob/main/LICENSE)
